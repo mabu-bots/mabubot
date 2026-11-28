@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# ==========================================
+# 🪝 整形チェック（pre-commit）
+# ==========================================
+# 有効化: git config core.hooksPath .githooks
+set -euo pipefail
+if [ -x node_modules/.bin/prettier ]; then
+  npm run format:check
+else
+  echo "pre-commit: prettier not installed; skipping format check (run npm ci first)."
+fi
